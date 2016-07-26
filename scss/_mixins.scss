@@ -1,0 +1,10 @@
+@mixin hex($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
+@mixin columnPlacement($margin, $padding) {
+  margin-top: $margin;
+  margin-left: $padding;
+}
