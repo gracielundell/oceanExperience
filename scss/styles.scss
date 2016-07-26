@@ -1,45 +1,54 @@
-.container:nth-child(odd) .hex .hexagon, .container:nth-child(even) .hex .hexagon {
-  width: 100px;
-  height: 55px;
-  position: relative;
-}
-.container:nth-child(odd) .hex .hexagon:before, .container:nth-child(even) .hex .hexagon:before {
-  content: "";
-  position: absolute;
-  top: -25px;
-  left: 0px;
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 25px solid black;
+.column:nth-child(odd), .column:nth-child(even) {
+  .hex {
+    .hexagon {
+      width: 100px;
+      height: 55px;
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        top: -25px;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 25px solid black;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: -25px;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-top: 25px solid black;
+      }
+    }
+  }
 }
 
-.container:nth-child(odd) .hex .hexagon:after, .container:nth-child(even) .hex .hexagon:after {
-  content: "";
-  position: absolute;
-  bottom: -25px;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-top: 25px solid black; }
-
-.container:nth-child(odd) {
+// set column positions
+.column:nth-child(odd) {
   display: flex;
-  flex-direction: column; }
-  .container:nth-child(odd) .hex {
+  flex-direction: column;
+  .hex {
     margin-top: 120px;
-    margin-left: -45px; }
+    margin-left: -45px;
+  }
+}
 
-.container:nth-child(even) {
+.column:nth-child(even) {
   display: flex;
   flex-direction: column;
   margin-top: -90px;
-  margin-left: -45px; }
-  .container:nth-child(even) .hex {
-    margin-top: 121px; }
+  margin-left: -45px;
+  .hex {
+    margin-top: 121px;
+  }
+}
 
 body {
   background: linear-gradient(270deg, #098296, #deeaec, #df9d41);
@@ -47,6 +56,7 @@ body {
   -webkit-animation: AnimationName 15s ease infinite;
   animation: AnimationName 15s ease infinite;
 }
+
 @-webkit-keyframes AnimationName {
   0% {
     background-position: 0% 50%; }
@@ -67,11 +77,13 @@ body {
 
 .body {
   display: flex;
-  height: 100vh; }
+  height: 100vh;
+}
 
 .hexagon {
   position: relative;
   flex-grow: 1;
   margin: 0.5px;
   border-radius: 1px;
-  animation: scale 5s infinite alternate-reverse; }
+  animation: scale 5s infinite alternate-reverse;
+}
